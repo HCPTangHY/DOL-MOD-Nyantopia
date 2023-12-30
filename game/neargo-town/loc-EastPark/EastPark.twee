@@ -1,0 +1,6 @@
+:: East Park
+<<set $outside to 0>><<set $location to "EastPark">><<effects>>
+城市东部的巨大的公园，白天参观天文台的人多，此时人声鼎沸；到了晚上就成了猫咪们的聚会地。
+<br>你可以：<br>
+<br>或前往其他区域：<br>
+<<link [[前往哈瓦那大道|Habana Street]]>><</link>><br>

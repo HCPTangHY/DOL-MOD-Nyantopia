@@ -1,7 +1,9 @@
 :: Cake Shop
+<<set $outside to 1>><<effects>>
 中央广场的一家蛋糕店，售卖着各式各样的蛋糕。<br>
 <<set $diff = ["梅普正在吃一块蛋糕","梅普正在努力上楼","梅普正在和顾客玩耍"]>>
-<<print $diff.random()>><br>
+<<print $diff.random()>>。<br>
+<br>你可以：<br>
 <<link [[购买一个猫形饼干(£11)|]]>><</link>><br>
 <<link [[购买一个鱼形饼干(£11)|]]>><</link>><br>
 <<link [[购买一块低糖减脂蛋糕(£6.5)|]]>><</link>><br>

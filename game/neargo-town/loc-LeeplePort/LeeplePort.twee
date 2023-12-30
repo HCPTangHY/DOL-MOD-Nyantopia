@@ -1,0 +1,7 @@
+:: Leeple Port
+<<set $outside to 0>><<set $location to "LeeplePort">><<effects>>
+靠近利普尔港，海的气息就越浓厚，渔船一艘艘出现在眼前，充满港口风情。
+<br>你可以：<br>
+<br>或前往其他区域：<br>
+<<link [[前往哈瓦那大道|Habana Street]]>><</link>><br>
+<<link [[前往索马里大道|Sorumari Street]]>><</link>><br>

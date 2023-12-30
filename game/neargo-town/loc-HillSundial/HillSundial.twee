@@ -1,0 +1,7 @@
+:: Hill Sundial
+<<set $outside to 0>><<set $location to "HillSundial">><<effects>>
+和平公园坐落于此，通往日晷丘陵的阶梯两侧有很多精品店，很是热闹。
+<br>你可以：<br>
+<br>或前往其他区域：<br>
+<<link [[前往杰克尼森林|Zecone Forest]]>><</link>><br>
+<<link [[前往中央广场|Public Square]]>><</link>><br>

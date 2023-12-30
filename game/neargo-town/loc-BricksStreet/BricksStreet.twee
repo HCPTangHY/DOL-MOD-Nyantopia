@@ -1,0 +1,7 @@
+:: Bricks Street
+<<set $outside to 0>><<set $location to "BricksStreet">><<effects>>
+一条坡度平缓的大道，消防局、警察局坐落于此。
+<br>你可以：<br>
+<br>或前往其他区域：<br>
+<<link [[前往诺贝尔克森林|Nyanbelc Forest]]>><</link>><br>
+<<link [[前往曼奇肯大道|Mantican Street]]>><</link>><br>

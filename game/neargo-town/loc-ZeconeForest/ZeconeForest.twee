@@ -1,0 +1,6 @@
+:: Zecone Forest
+<<set $outside to 0>><<set $location to "ZeconeForest">><<effects>>
+位于诺贝尔克城堡南方的一大片森林，已经被指定为了国家公园。
+<br>你可以：<br>
+<br>或前往其他区域：<br>
+<<link [[前往日晷丘陵|Hill Sundial]]>><</link>><br>

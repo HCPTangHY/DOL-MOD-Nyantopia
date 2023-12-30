@@ -1,0 +1,6 @@
+:: Neargo Newspaper
+<<set $outside to 1>><<effects>>
+整个城市的报社，在没有网络的年代，报社大概是唯一的媒体了吧。
+<br>你可以：<br>
+<<link [[买一份报(£2)|]]>><</link>><br>
+<<link [[离开|Sorumari Street]]>><</link>><br>

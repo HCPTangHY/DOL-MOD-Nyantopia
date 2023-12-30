@@ -1,0 +1,17 @@
+:: Mantican Street
+<<set $outside to 0>><<set $location to "ManticanStreet">><<effects>>
+曼奇肯大道是本市的主干道，左右两边都是经中央大桥出入城市的车辆。你的西边坐落着一排商店，售卖着琳琅满目的各种商品；东边是一片住宅区，大概是仅次于中央广场最繁华的街区了。继续往北走就能看到中央大桥了。
+<br>你可以：<br>
+<<link [[前往曼奇肯北大街|Mantican North Street]]>><</link>><br>
+<<link [[前往曼奇肯商店街|Mantican Shop Street]]>><</link>><br>
+<<link [[前往曼奇肯住宅街|Mantican Neighborhood]]>><</link>><br>
+<br>或前往其他区域：<br>
+<<link [[穿过商店街前往布利斯大道|Bricks Street]]>><</link>><br>
+<<link [[穿过住宅街前往哈瓦那大道|Habana Street]]>><</link>><br>
+<<link [[前往中央广场|Public Square]]>><</link>><br>
+
+:: Mantican North Street
+
+:: Mantican Shop Street
+
+:: Mantican Neighborhood

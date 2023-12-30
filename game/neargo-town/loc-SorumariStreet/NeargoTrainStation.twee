@@ -1,0 +1,8 @@
+:: Neargo Train Station
+<<set $outside to 1>><<effects>>
+非常热闹的车站，各种游客和本地居民出入往来
+<<set $diff = ["卡米拉正在带小猫上厕所","卡米拉在长椅上休息"]>>
+<<print $diff.random()>>。<br>
+<br>你可以：<br>
+(COMING SOON!)
+<<link [[离开|Sorumari Street]]>><</link>><br>
