@@ -1,0 +1,5 @@
+:: neargoInit [widget]
+<<widget neargoInit>>
+    <<set $neargoIntro to 1>>
+    <<set $inventory = []>>
+<</widget>>

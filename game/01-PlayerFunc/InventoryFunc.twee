@@ -1,0 +1,5 @@
+:: Inventory Function [widget]
+<<widget add_item>>
+    <<set _item to _args[0]>>
+    <<set $inventory = $inventory.concat(_item)>>
+<</widget>>
