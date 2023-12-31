@@ -10,6 +10,14 @@
                     "passage": "Bedroom",
                     "findString": "<<bedclotheson \"bed\">>",
                     "replace": "<<bedclotheson \"bed\">>[[魂穿猫国|Public Square]]"
+                },{
+                    "passage": "StoryCaption",
+                    "findRegex": "(?<=(<<button SOCIAL>>|<<button 社交>>).*\n.*\n.*>>)",
+                    "replace": "<<if $neargoIntro>><<button 物品栏>><<overlayReplace \"inventory\">><</button>><</if>>"
+                },{
+                    "passage":"overlayReplace",
+                    "findString":"<<switch _key>>",
+                    "replace":"<<switch _key>><<case \"inventory\">><<replace #customOverlayTitle>><<titleInventory>><</replace>><<replace #customOverlayContent>><<inventory>><</replace>>"
                 }
             ]
         }

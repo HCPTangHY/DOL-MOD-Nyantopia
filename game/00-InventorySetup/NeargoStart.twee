@@ -1,5 +1,5 @@
 :: neargoInit [widget]
-<<widget neargoInit>>
+<<widget "neargoInit">>
     <<set $neargoIntro to 1>>
-    <<set $playerInventory = {leftHand:0,rightHand:0,backpack:0,inventory:[]}>>
+    <<set $neargoReturnText to "">>
 <</widget>>
