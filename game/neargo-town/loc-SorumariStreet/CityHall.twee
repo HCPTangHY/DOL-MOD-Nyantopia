@@ -1,6 +1,0 @@
-:: City Hall
-<<set $outside to 1>><<effects>>
-城市的行政中心，公务员们和猫们在大厅里穿梭。
-<br>你可以：<br>
-(COMING SOON!)
-<<link [[离开|Sorumari Street]]>><</link>><br>

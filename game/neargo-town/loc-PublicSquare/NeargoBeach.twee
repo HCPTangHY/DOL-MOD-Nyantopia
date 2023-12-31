@@ -1,6 +1,0 @@
-:: Neargo Beach
-<<set $outside to 0>><<set $location to "NeargoBeach">><<effects>>
-从海滩上空可以俯瞰整个中央广场，还能看到远处的城堡，风景一绝。
-<br>你可以：<br>
-<br>或前往其他区域：<br>
-<<link [[前往中央广场|Public Square]]>><</link>><br>

@@ -1,8 +1,0 @@
-:: Habana Street
-<<set $outside to 0>><<set $location to "HabanaStreet">><<effects>>
-在哈瓦那大道举行的猫咪马戏团街头表演很受欢迎！自由猫们穿梭在队伍里更是一绝。
-<br>你可以：<br>
-<br>或前往其他区域：<br>
-<<link [[前往曼奇肯大道|Mantican Street]]>><</link>><br>
-<<link [[前往东方公园|East Park]]>><</link>><br>
-<<link [[前往利普尔港|Leeple Port]]>><</link>><br>

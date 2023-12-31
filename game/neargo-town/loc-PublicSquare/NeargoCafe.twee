@@ -1,5 +1,0 @@
-:: Neargo Cafe
-<<set $outside to 1>><<effects>>
-位于中央广场的咖啡店，连接着广场和索马里大道。<br>
-<br>你可以：<br>
-<<link [[离开|Public Square West]]>><</link>><br>

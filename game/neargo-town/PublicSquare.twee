@@ -1,0 +1,51 @@
+:: Public Square
+<<if $neargoIntro is undefined>>
+	<<neargoInit>>
+<</if>>
+<<set $outside to 0>><<set $location to "PublicSquare">><<effects>>
+<<set $NeargoPositonOutput = {desc:"",choice:[],travel:[],activeTemp:{}}>>
+<<script>>
+    let userlocation = window.Positions[V.location];
+    V.NeargoPositonOutput.desc = userlocation.desc;
+    V.NeargoPositonOutput.choice = [];
+    for (let i=0;i<userlocation.choice.length;i++) {
+        let c = String(userlocation.choice[i]).split("|");
+        let func = String(c[1]).split(":")[0];
+        let para = String(c[1]).split(":")[1];
+        if (func=='travel') {
+            V.NeargoPositonOutput.travel.push({text:c[0],func:func,para:para});
+        } else {
+            V.NeargoPositonOutput.choice.push({text:c[0],func:func,para:para});
+        }
+    }
+<</script>>
+<<print $NeargoPositonOutput.desc>><br>
+<br>你可以：<br>
+<<for _i to 0; _i lt $NeargoPositonOutput.choice.length; _i++>>
+    <<print "<<link [[$NeargoPositonOutput.choice[_i].text|NeargoPositionStd]]>><<set $NeargoPositonOutput.activeTemp = $NeargoPositonOutput.choice["+_i+"]>><<script>>window.neargoPlayer[V.NeargoPositonOutput.activeTemp.func](V.NeargoPositonOutput.activeTemp.para)<</script>><</link>>">><br>
+<</for>>
+<<if $NeargoPositonOutput.travel.length>0>>
+    <br>或前往其他区域：<br>
+    <<for _i to 0; _i lt $NeargoPositonOutput.travel.length; _i++>>
+        <<print "<<link [[$NeargoPositonOutput.travel[_i].text|NeargoPositionStd]]>><<set $NeargoPositonOutput.activeTemp = $NeargoPositonOutput.travel["+_i+"]>><<script>>window.neargoPlayer[V.NeargoPositonOutput.activeTemp.func](V.NeargoPositonOutput.activeTemp.para)<</script>><</link>>">><br>
+    <</for>>
+<</if>>
+
+:: Public Square East
+<<add_item "Apple">>
+<<set $outside to 0>><<set $location to "PublicSquare">><<effects>>
+中央广场的东侧，这里有很多公寓，选择住在这里一定非常热闹。<br>
+<br>你可以：<br>
+<<link [[靠近「西伯利亚」烘焙坊|Siberia Bakery]]>><</link>><br>
+<<link [[回到广场中心|Public Square]]>><</link>><br>
+
+:: Public Square West
+<<add_item "Peal">>
+<<set $outside to 0>><<set $location to "PublicSquare">><<effects>>
+中央广场的西侧，有着很多的店铺，猫猫们懒洋洋地趴在店铺门口。<br>
+<br>你可以：<br>
+<<link [[走进蛋糕店|Cake Shop]]>><</link>><br>
+<<link [[走进剧院|Theater]]>><</link>><br>
+<<link [[走进咖啡屋|Neargo Cafe]]>><</link>><br>
+<<link [[走进可丽饼店|Crepe Shop]]>><</link>><br>
+<<link [[回到广场中心|Public Square]]>><</link>><br>

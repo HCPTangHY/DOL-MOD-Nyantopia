@@ -1,6 +1,0 @@
-:: Nyanbelc Forest
-<<set $outside to 0>><<set $location to "NyanbelcForest">><<effects>>
-由诺贝尔伯爵于14世纪兴建的城堡，至今仍保留着风貌，因此这座历史古城成了最著名的旅游经典。
-<br>你可以：<br>
-<br>或前往其他区域：<br>
-<<link [[前往布利斯大道|Bricks Street]]>><</link>><br>

@@ -1,5 +1,0 @@
-:: Crepe Shop
-<<set $outside to 1>><<effects>>
-你闻到飘散着的香甜的奶油香味，一只名叫“巧克力”的猫在椅子上打盹。<br>
-<br>你可以：<br>
-<<link [[离开|Public Square West]]>><</link>><br>

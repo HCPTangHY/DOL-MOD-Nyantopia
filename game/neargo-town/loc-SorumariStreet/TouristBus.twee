@@ -1,6 +1,0 @@
-:: Tourist Bus
-<<set $outside to 1>><<effects>>
-正前方的黄色建筑物是旅游局，满载着游客的巴士好像正要出发，前往哈瓦那大道。
-<br>你可以：<br>
-<<link [[坐车前往哈瓦那大道|Habana Street]]>><</link>><br>
-<<link [[离开|Sorumari Street]]>><</link>><br>
