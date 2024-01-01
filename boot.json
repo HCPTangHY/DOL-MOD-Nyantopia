@@ -1,5 +1,5 @@
 {
-    "version": "PRE-EA-0.0.002",
+    "version": "PRE-EA-0.0.003",
     "addonPlugin": [
         {
             "modName": "TweeReplacer",
@@ -20,12 +20,21 @@
                     "replace":"<<switch _key>><<case \"inventory\">><<replace #customOverlayTitle>><<titleInventory>><</replace>><<replace #customOverlayContent>><<inventory>><</replace>>"
                 }
             ]
+        },
+        {
+            "modName": "ModLoader DoL ImageLoaderHook",
+            "addonName": "ImageLoaderAddon",
+            "modVersion": "^2.3.0"
         }
     ],
     "dependenceInfo": [
         {
             "modName": "TweeReplacer",
             "version": "1.3.0"
+        },
+        {
+            "modName": "ModLoader DoL ImageLoaderHook",
+            "version": "^2.3.0"
         }
     ]
 }

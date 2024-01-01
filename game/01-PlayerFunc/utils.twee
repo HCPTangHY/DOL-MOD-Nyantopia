@@ -1,0 +1,5 @@
+:: Functions [widget]
+
+<<widget "itemIcon">>
+    <<print "<img class='itemIcon' src='img/misc/icon/item/"+_args[0]+".png'>">>
+<</widget>>

@@ -2,9 +2,9 @@
 
 <<widget "inventory">>
     物品栏啊哈哈哈哈哈，不喜欢原生HTML....
-    <<set _inventory = window.neargoPlayer.inventory>>
-    <<for _i to 0; _i < _inventory.length; _i++>>
-        _inventory[_i]
+    <<set _inventory = $neargoPlayer.inventory>>
+    <<for _i to 0; _i < $neargoPlayer.inventory.length; _i++>>
+        $neargoPlayer.inventory[_i]
     <</for>>
 <</widget>>
 <<widget "titleInventory">>

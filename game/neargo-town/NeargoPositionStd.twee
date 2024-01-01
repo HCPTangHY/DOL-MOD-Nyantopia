@@ -27,12 +27,13 @@
     <<print _diff.random()>>。<br>
     <br>你可以：<br>
     <<for _i to 0; _i lt $NeargoPositonOutput.choice.length; _i++>>
-        <<print "<<link [[$NeargoPositonOutput.choice[_i].text|NeargoPositionStd]]>><<set $NeargoPositonOutput.activeTemp = $NeargoPositonOutput.choice["+_i+"]>><<script>>V.neargoReturnText = window.neargoPlayer[V.NeargoPositonOutput.activeTemp.func](V.NeargoPositonOutput.activeTemp.para)<</script>><</link>>">><br>
+        <<print "<<if $NeargoPositonOutput.choice["+_i+"].func=='buy_item'>><<itemIcon $NeargoPositonOutput.choice["+_i+"].para[0]>><</if>>">>
+        <<print "<<link [[$NeargoPositonOutput.choice[_i].text|NeargoPositionStd]]>><<set $NeargoPositonOutput.activeTemp = $NeargoPositonOutput.choice["+_i+"]>><<script>>window.neargoPlayer.init(V.neargoPlayer.leftHand,V.neargoPlayer.rightHand,V.neargoPlayer.backpack,V.neargoPlayer.inventory);V.neargoReturnText = window.neargoPlayer[V.NeargoPositonOutput.activeTemp.func](V.NeargoPositonOutput.activeTemp.para)<</script>><</link>>">><br>
     <</for>>
     <<if $NeargoPositonOutput.travel.length>0>>
         <br>或前往其他区域：<br>
         <<for _i to 0; _i lt $NeargoPositonOutput.travel.length; _i++>>
-            <<print "<<link [[$NeargoPositonOutput.travel[_i].text|NeargoPositionStd]]>><<set $NeargoPositonOutput.activeTemp = $NeargoPositonOutput.travel["+_i+"]>><<script>>V.neargoReturnText = window.neargoPlayer[V.NeargoPositonOutput.activeTemp.func](V.NeargoPositonOutput.activeTemp.para)<</script>><</link>>">><br>
+            <<print "<<link [[$NeargoPositonOutput.travel[_i].text|NeargoPositionStd]]>><<set $NeargoPositonOutput.activeTemp = $NeargoPositonOutput.travel["+_i+"]>><<script>>window.neargoPlayer.init(V.neargoPlayer.leftHand,V.neargoPlayer.rightHand,V.neargoPlayer.backpack,V.neargoPlayer.inventory);V.neargoReturnText = window.neargoPlayer[V.NeargoPositonOutput.activeTemp.func](V.NeargoPositonOutput.activeTemp.para)<</script>><</link>>">><br>
         <</for>>
     <</if>>
 <</widget>>
