@@ -25,8 +25,8 @@ class NeargoPlayer {
     constructor(lh,rh,bp,inv) {
         this.leftHand = lh;
         this.rightHand = rh;
-        this.backpack = bp;
-        this.inventory = inv;
+        this.backpack = bp||"";
+        this.inventory = inv||[];
     }
     init(lh,rh,bp,inv) {
         this.leftHand = lh;
@@ -37,6 +37,14 @@ class NeargoPlayer {
     update() {
         Object.defineProperty(V,"neargoPlayer",{value:this});
     }
+    count_slots() {
+        let slots = 0
+        for (let value of Object.values(V.worn)) {
+            let slot = window.clothesSlots[value.name] || 0
+            slots += slot
+        }
+        return slots
+    }
     move_to(target) {
         V.outside = 0;
         V.location = target;
@@ -46,8 +54,9 @@ class NeargoPlayer {
         V.location = target;
     }
     buy_item(args) {
+        args = String(args).split(";")
         let itemID=args[0];let price=args[1];
-        if (this.inventory.length >=4) {return "空间不足"};
+        if (this.inventory.length+1 > this.count_slots()) {return "空间不足"};
         if (V.money < price*100) {return "你没钱了！"}
         this.inventory.push(itemID);
         V.money -= price*100;

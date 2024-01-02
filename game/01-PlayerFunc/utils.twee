@@ -3,3 +3,7 @@
 <<widget "itemIcon">>
     <<print "<img class='itemIcon' src='img/misc/icon/item/"+_args[0]+".png'>">>
 <</widget>>
+
+<<widget "player_action">>
+    <<print "<<script>>window.neargoPlayer.init(V.neargoPlayer.leftHand,V.neargoPlayer.rightHand,V.neargoPlayer.backpack,V.neargoPlayer.inventory);V.neargoReturnText = window.neargoPlayer['"+_args[0]+"']('"+_args[1]+"')<</script>>">>
+<</widget>>

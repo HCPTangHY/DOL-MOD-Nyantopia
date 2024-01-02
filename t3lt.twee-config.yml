@@ -8129,3 +8129,7 @@ sugarcube-2:
       name: std_position_out
     inventory:
       name: inventory
+    itemIcon:
+      name: itemIcon
+    player_action:
+      name: player_action

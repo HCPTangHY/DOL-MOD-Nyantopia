@@ -1,7 +1,8 @@
 :: Inventory Function [widget]
 
 <<widget "inventory">>
-    物品栏啊哈哈哈哈哈，不喜欢原生HTML....
+    物品栏啊哈哈哈哈哈，不喜欢原生HTML....<br>
+	你的物品栏位：<<player_action "count_slots">><<print $neargoReturnText>>
     <<set _inventory = $neargoPlayer.inventory>>
     <<for _i to 0; _i < $neargoPlayer.inventory.length; _i++>>
         $neargoPlayer.inventory[_i]
