@@ -3,6 +3,7 @@
     <<set $NeargoPositonOutput = {desc:"",descDiff:[],choice:[],travel:[]}>>
     <<script>>
         let userlocation = window.Positions[V.location];
+        if (V.location in V.neargoPositions) {userlocation = V.neargoPositions[V.location]}
         if (userlocation) {
             V.NeargoPositonOutput.desc = String(userlocation.desc).split("|")[0];
             if (String(userlocation.desc).split("|").length >1) {

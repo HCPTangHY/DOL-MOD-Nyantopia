@@ -17,7 +17,7 @@ const positions = {
     SorumariStreet:{
         name:"索马里大道",
         desc:"从火车站到鱼市场附近，是交通要道。报社、市政府等建筑物都在火车站附近，很是热闹。",
-        choice:["前往报社|move_to:Newspaper","前往市政府|move_to:CityHall","前往火车站|move_to:TrainStation","旅游大巴|move_to:TouristBus","前往中央广场|travel:PublicSquare","前往东方公园|travel:EastPark"]
+        choice:["前往花店「PETAL」|move_to:PetalFlowerShop","前往报社|move_to:Newspaper","前往市政府|move_to:CityHall","前往火车站|move_to:TrainStation","旅游大巴|move_to:TouristBus","前往中央广场|travel:PublicSquare","前往东方公园|travel:EastPark"]
     },
     ManticanStreet:{
         name:"曼奇肯大道",
@@ -71,17 +71,17 @@ const positions = {
     },
     SiberiaBakery:{
         name:"「西伯利亚」烘焙坊",
-        desc:"据说这家店第一个老板养了一只西伯利亚猫，于是索性就把店名起做「西伯利亚」了。|克罗华森正在楼梯上玩 酷儿正在柜台上睡觉",
+        desc:"据说这家店第一个老板养了一只西伯利亚猫，于是索性就把店名起做「西伯利亚」了。|克罗华森正在楼梯上玩。 酷儿正在柜台上睡觉。",
         choice:["鱼面包(£3)|buy_item:FishBread;3","脚掌面包(£3)|buy_item:PawBread;3","猫形面包(£9)|buy_item:CatBread;9","脚印烧口袋三明治(£8.5)|buy_item:PawPocketSandwich;8.5","离开|move_to:PublicSquareEast"]
     },
     CakeShop:{
         name:"蛋糕店",
-        desc:"中央广场的一家蛋糕店，售卖着各式各样的蛋糕。|梅普正在吃一块蛋糕 梅普正在努力上楼 梅普正在和顾客玩耍",
+        desc:"中央广场的一家蛋糕店，售卖着各式各样的蛋糕。|梅普正在吃一块蛋糕。 梅普正在努力上楼。 梅普正在和顾客玩耍。",
         choice:["猫形饼干(£11)|buy_item:CatBiscuit;11","鱼形饼干(£11)|buy_item:FishBiscuit;11","购买一块低糖减脂蛋糕(£10)|buy_item:FitnessCake;10","购买一角苹果派(£6.5)|buy_item:OneApplePie;6.5","购买整个苹果派(£39)|buy_item:ApplePie;39","离开|move_to:PublicSquareWest"]
     },
     Theater:{
         name:"剧院",
-        desc:"结合了音乐厅、电影院、剧院等多功能设施，市民们经常来观赏演出。|杰克正在捉老鼠 杰克正在椅子上舔毛",
+        desc:"结合了音乐厅、电影院、剧院等多功能设施，市民们经常来观赏演出。|杰克正在捉老鼠。 杰克正在椅子上舔毛。",
         choice:["观看电影(£20)|watch","欣赏古典音乐会|watch","离开|move_to:PublicSquareWest"]
     },
     Cafe:{
@@ -106,7 +106,7 @@ const positions = {
     },
     TrainStation:{
         name:"火车站",
-        desc:"非常热闹的车站，各种游客和本地居民出入往来。|卡米拉正在带小猫上厕所 卡米拉在长椅上休息",
+        desc:"非常热闹的车站，各种游客和本地居民出入往来。|卡米拉正在带小猫上厕所…… 卡米拉在长椅上休息。",
         choice:["离开|move_to:SorumariStreet"],
     },
     TouristBus:{
@@ -117,7 +117,7 @@ const positions = {
     PetalFlowerShop:{
         name:"花店「PETAL」",
         desc:"名叫Petal的花店，一进门便是浓郁的花香。铃兰、郁金香等对猫咪有毒地花朵被放到了高处。店员在给花们浇水。|弗洛拉在卖力地吃着猫草…… 弗洛拉在花丛中探头。",
-        choice:["购买一朵红玫瑰(£2.5)|buy_item:RedRose;2.5","购买一把向日葵(£10)|buy_item:Sunflower;10","购买一朵郁金香(£4)|buy_item:Tulip;4","离开|move_to:SorumariStreet"],
+        choice:["购买一把向日葵(£5)|buy_item:Sunflower;5","购买一朵郁金香(£4)|buy_item:Tulip;4","购买一朵百合(£5)|buy_item:Lily;5","购买一朵粉百合(£6)|buy_item:PinkLily;6","离开|move_to:SorumariStreet"],
     },
     LeeplePortStation:{
         name:"利普尔港车站",

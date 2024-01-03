@@ -3,11 +3,27 @@
 <<widget "inventory">>
     物品栏啊哈哈哈哈哈，不喜欢原生HTML....<br>
 	你的物品栏位：<<player_action "count_slots">><<print $neargoReturnText>>
-    <<set _inventory = $neargoPlayer.inventory>>
-    <<for _i to 0; _i < $neargoPlayer.inventory.length; _i++>>
-        $neargoPlayer.inventory[_i]
-    <</for>>
+	<<inventory_show>>
 <</widget>>
+
+<<widget "inventory_show">>
+	<<script>>
+		document.getElementById("customOverlayContent").innerHTML += "<div class='inventory_box' id='inventory_box'></div>";
+		let html = "";
+		for (let value of Object.values(V.neargoPlayer.inventory)) {
+			html += "<h5>"+value.name+": </h5>";
+			for (let item of value.inv) {
+				html += "<div class='inventory_item'><img class='inventory_item_icon' src='img/misc/icon/item/"+item+".png'><p style='text-align:center;'>"+item+"</p></div>";
+			}
+			if (value.inv.length < value.slotNum) {
+				for (let i=0;i<value.slotNum-value.inv.length;i++)
+				html += "<div class='inventory_item'></div>";
+			}
+		}
+		document.getElementById("inventory_box").innerHTML = html;
+	<</script>>
+<</widget>>
+
 <<widget "titleInventory">>
     <<setupTabs>>
 	<div id="overlayTabs" class="tab">

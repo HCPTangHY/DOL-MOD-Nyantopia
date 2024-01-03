@@ -8133,3 +8133,7 @@ sugarcube-2:
       name: itemIcon
     player_action:
       name: player_action
+    inventory_item_icon:
+      name: inventory_item_icon
+    inventory_show:
+      name: inventory_show

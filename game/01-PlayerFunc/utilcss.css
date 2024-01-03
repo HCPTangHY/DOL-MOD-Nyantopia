@@ -2,3 +2,28 @@
     position: static;
 	vertical-align: middle;
 }
+
+.inventory_box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.inventory_item {
+    text-align: center;
+    justify-content: center;
+    padding: 1.25%;
+    margin: 10px;
+    width: 10%;
+    height: 10%;
+    border: 1px dashed;
+    border-color: #232323;
+    border-radius: 20%;
+    background-color: #929292;
+}
+.inventory_item_icon {
+    position: static;
+    width: auto;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 5px;
+}

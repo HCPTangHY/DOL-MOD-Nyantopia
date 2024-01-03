@@ -26,7 +26,7 @@ class NeargoPlayer {
         this.leftHand = lh;
         this.rightHand = rh;
         this.backpack = bp||"";
-        this.inventory = inv||[];
+        this.inventory = inv||{};
     }
     init(lh,rh,bp,inv) {
         this.leftHand = lh;
@@ -39,8 +39,18 @@ class NeargoPlayer {
     }
     count_slots() {
         let slots = 0
-        for (let value of Object.values(V.worn)) {
+        for (let key of Object.keys(V.worn)) {
+            let value = V.worn[key]
             let slot = window.clothesSlots[value.name] || 0
+            if (slot!=0) {
+                if (!(key in this.inventory)) {
+                    this.inventory[key] = {name:value.name,slotNum:slot,inv:[]}
+                    if ("cn_name_cap" in value) {
+                        this.inventory[key].name = value.cn_name_cap
+                    }
+                    this.update()
+                }
+            }
             slots += slot
         }
         return slots
@@ -56,15 +66,19 @@ class NeargoPlayer {
     buy_item(args) {
         args = String(args).split(";")
         let itemID=args[0];let price=args[1];
-        if (this.inventory.length+1 > this.count_slots()) {return "空间不足"};
         if (V.money < price*100) {return "你没钱了！"}
-        this.inventory.push(itemID);
-        V.money -= price*100;
-        this.update();
-        return "你购买了"+itemID;
+        for (let key of Object.keys(this.inventory)) {
+            if (this.inventory[key].inv.length+1 <= this.inventory[key].slotNum){
+                this.inventory[key].inv.push(itemID)
+                V.money -= price*100;
+                this.update();
+                return "你购买了"+itemID;
+            }
+        }
+        return "空间不足"
     }
 }
 if (window.neargoPlayer == undefined) {
-    let np = new NeargoPlayer("","","",[]);
+    let np = new NeargoPlayer("","","",{});
     Object.defineProperty(window,"neargoPlayer",{value:np});
 }
