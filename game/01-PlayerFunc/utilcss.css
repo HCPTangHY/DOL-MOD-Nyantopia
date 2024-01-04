@@ -11,19 +11,30 @@
 .inventory_item {
     text-align: center;
     justify-content: center;
-    padding: 1.25%;
-    margin: 10px;
-    width: 10%;
-    height: 10%;
-    border: 1px dashed;
-    border-color: #232323;
-    border-radius: 20%;
-    background-color: #929292;
+    padding: 1%;
+    margin: 5px;
+    width: 75px;
+    height: 75px;
+    border: 2px dotted;
+    border-color: #464646;
 }
 .inventory_item_icon {
     position: static;
-    width: auto;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     padding-top: 5px;
+    border: 2px dashed;
+    border-color: #464646;
+    border-radius: 20%;
+}
+.inventory_item_icon_empty {
+    position: static;
+    width: 70%;
+    height: 0;
+    padding-bottom: 70%;
+    margin: 0 auto;
+    padding-top: 5px;
+    border: 2px dashed;
+    border-color: #464646;
+    border-radius: 20%;
 }
