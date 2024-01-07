@@ -53,18 +53,18 @@
 			$("#customOverlayContent").append("<h3>"+item.name+"</h3>");
 			$("#customOverlayContent").append("<p>"+item.desc+"</p>");
 			if (V.neargoPlayer.leftHand != item.id) {
-				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"left;"+item.id+"\")'>装备左手</a>");
+				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"left;"+item.id+"\")'>装备左手</a><br>");
 			}
 			if (V.neargoPlayer.rightHand != item.id) {
-				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"right;"+item.id+"\")'>装备右手</a>");
+				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"right;"+item.id+"\")'>装备右手</a><br>");
 			}
 			for (let c of item.choice) {
 				let ctext = c.split("|")[0];
 				let cfunc = c.split("|")[1].split(":")[0];
 				let cpara = c.split("|")[1].split(":")[1];
-				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\""+cfunc+"\"](\""+cpara+"\")'>"+ctext+"</a>");
+				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\""+cfunc+"\"](\""+cpara+"\")'>"+ctext+"</a><br>");
 			}
-			$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='closeOverlay()'>关闭</a>");
+			$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='closeOverlay()'>关闭</a><br>");
 		};
 	<</script>>
 <</widget>>
