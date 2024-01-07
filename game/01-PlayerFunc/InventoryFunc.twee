@@ -3,19 +3,70 @@
 <<widget "inventory">>
     物品栏啊哈哈哈哈哈，不喜欢原生HTML....<br>
 	你的物品栏位：<<player_action "count_slots">><<print $neargoReturnText>>
+	<div id='inv_clothe_show' class='inventory_box'>
+		<div>
+			<div class='inventory_box'>
+				<div class='inventory_item'><<inventoey_clothing_slot "head">></div>
+				<div class='inventory_item'><<inventoey_clothing_slot "face">></div>
+				<div class='inventory_item'><<inventoey_clothing_slot "neck">></div>
+			</div>
+			<div class='inventory_box'>
+				<div style='margin: 5px;padding: 5px;width: 40px;height: 40px;border: 2px dotted #232323;'></div>
+				<<if $worn.upper.name=='naked'>>
+					<div class='inventory_item'><<inventoey_clothing_slot "under_upper">></div>
+				<<else>>
+					<div class='inventory_item'><<inventoey_clothing_slot "upper">></div>
+				<</if>>
+				<div class='inventory_item'><<inventoey_clothing_slot "handheld">></div>
+			</div>
+			<div class='inventory_box'>
+				<div style='margin: 5px;padding: 5px;width: 40px;height: 40px;border: 2px dotted #232323;'></div>
+				<<if $worn.lower.name=='naked'>>
+					<div class='inventory_item'><<inventoey_clothing_slot "under_lower">></div>
+				<<else>>
+					<div class='inventory_item'><<inventoey_clothing_slot "lower">></div>
+				<</if>>
+				<div class='inventory_item'><<inventoey_clothing_slot "hands">></div>
+			</div>
+			<div class='inventory_box'>
+				<div class='inventory_item'><<inventoey_clothing_slot "legs">></div>
+				<div class='inventory_item'><<inventoey_clothing_slot "feet">></div>
+			</div>
+		</div>
+	</div>
 	<<for _key,_value range $neargoPlayer.inventory>>
 		<h5><<= _value.name>></h5>
 		<div class='inventory_box'>
 		<<for _key2,_item range _value.inv>>
-			<div class='inventory_item'><<inventory_item_icon _item>><p style='text-align:center;margin:0'><<= _item>></p></div>
+			<<print "<div class='inventory_item' onclick=\"window.check_item('"+_item+"\')\"><<inventory_item_icon _item>></div>">>
 		<</for>>
 		<<if _value.inv.length < _value.slotNum>>
 			<<for _i to 0;_i<_value.slotNum-_value.inv.length;_i++>>
 				<div class='inventory_item'><div class='inventory_item_icon_empty'></div></div>
 			<</for>>
 		<</if>>
-		</div>
 	<</for>>
+	<<script>>
+		window.check_item = function check_item(itemID){
+			let item = window.Items[itemID];
+			$("#customOverlayContent").empty();
+			$("#customOverlayContent").append("<h3>"+item.name+"</h3>");
+			$("#customOverlayContent").append("<p>"+item.desc+"</p>");
+			if (V.neargoPlayer.leftHand != item.id) {
+				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"left;"+item.id+"\")'>装备左手</a>");
+			}
+			if (V.neargoPlayer.rightHand != item.id) {
+				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"right;"+item.id+"\")'>装备右手</a>");
+			}
+			for (let c of item.choice) {
+				let ctext = c.split("|")[0];
+				let cfunc = c.split("|")[1].split(":")[0];
+				let cpara = c.split("|")[1].split(":")[1];
+				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\""+cfunc+"\"](\""+cpara+"\")'>"+ctext+"</a>");
+			}
+			$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='closeOverlay()'>关闭</a>");
+		};
+	<</script>>
 <</widget>>
 
 <<widget "titleInventory">>
@@ -26,7 +77,6 @@
 			<<toggleTab>>
 			<<replace #customOverlayContent>><<inventory>><</replace>>
 		<</button>>
-		<<colourCodes>>
 	</div>
 	<<closeButton>>
 <</widget>>

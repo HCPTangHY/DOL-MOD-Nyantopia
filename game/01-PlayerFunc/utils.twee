@@ -1,4 +1,7 @@
 :: Functions [widget]
+<<widget "player_action">>
+    <<print "<<script>>window.neargoPlayer.init();V.neargoReturnText = window.neargoPlayer['"+_args[0]+"']('"+_args[1]+"')<</script>>">>
+<</widget>>
 
 <<widget "itemIcon">>
     <<print "<img class='itemIcon' src='img/misc/icon/item/"+_args[0]+".png'>">>
@@ -8,6 +11,36 @@
     <<print "<img class='inventory_item_icon' src='img/misc/icon/item/"+_args[0]+".png'>">>
 <</widget>>
 
-<<widget "player_action">>
-    <<print "<<script>>window.neargoPlayer.init(V.neargoPlayer.leftHand,V.neargoPlayer.rightHand,V.neargoPlayer.backpack,V.neargoPlayer.inventory);V.neargoReturnText = window.neargoPlayer['"+_args[0]+"']('"+_args[1]+"')<</script>>">>
+<<widget "inventoey_clothing_slot">>
+    <<if $worn[_args[0]].name == 'naked'>>
+        <<inventory_clothing_category_icon _args[0]>>
+    <<else>>
+        <<set _wornItem to $worn[_args[0]]>>
+        <<set _wornItemData to setup.clothes[_args[0]][clothesIndex(_args[0],_wornItem)]>>
+        <<inventory_clothing_icon _wornItem _args[0]>>
+    <</if>>
+<</widget>>
+
+<<widget "inventory_clothing_category_icon">>
+    <<set _args[0] = _args[0].replace("_","")>>
+    <<if _args[0] == 'hands'>><<set _args[0] = 'hand'>><</if>>
+    <<print "<img class='inventory_item_icon_empty' src='img/misc/icon/clothes/categories/" + _args[0] + ".png'>">>
+<</widget>>
+
+<<widget "inventory_clothing_icon">>
+	<<if $options.images is 1>>
+		<<set $_item to setup.clothes[_args[1]][clothesIndex(_args[1],_args[0])]>>
+		<<if $_item.iconFile>>
+			<<if typeof($_item.iconFile) === 'string'>>
+				<<set $clothesiconFile = "img/misc/icon/clothes/" + $_item.iconFile>>
+			<<else>>
+				<<set $clothesiconFile = "img/misc/icon/clothes/" + $_item.name_cap + ".png">>
+			<</if>>
+			<<if _args[0].colour is 0 or $_item.colour_options.length lt 2>>
+				<img class="icon" alt="" @src="$clothesiconFile">
+			<<else>>
+				<img alt="" @class="'icon-'+ _args[0].colour.replace(/ /g, '-') + ' icon'" @src="$clothesiconFile" @style="(_args[0].colour is 'custom'? _args[0].colourCustom : '')">
+			<</if>>
+		<</if>>
+	<</if>>
 <</widget>>

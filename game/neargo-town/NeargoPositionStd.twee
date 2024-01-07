@@ -1,44 +1,44 @@
-:: std_position_out [widget]
-<<widget "std_position_out">>
-    <<set $NeargoPositonOutput = {desc:"",descDiff:[],choice:[],travel:[]}>>
+:: std_Scean_out [widget]
+<<widget "std_Scean_out">>
+    <<set $NeargoSceanOutput = {desc:"",descDiff:[],choice:[],travel:[]}>>
     <<script>>
-        let userlocation = window.Positions[V.location];
-        if (V.location in V.neargoPositions) {userlocation = V.neargoPositions[V.location]}
+        let userlocation = window.Sceans[V.location];
+        if (V.location in V.neargoPositions) {userlocation = V.neargoSceans[V.location]}
         if (userlocation) {
-            V.NeargoPositonOutput.desc = String(userlocation.desc).split("|")[0];
+            V.NeargoSceanOutput.desc = String(userlocation.desc).split("|")[0];
             if (String(userlocation.desc).split("|").length >1) {
-                V.NeargoPositonOutput.descDiff = String(userlocation.desc).split("|")[1].split(" ")
+                V.NeargoSceanOutput.descDiff = String(userlocation.desc).split("|")[1].split(" ")
             }
-            V.NeargoPositonOutput.choice = [];
+            V.NeargoSceanOutput.choice = [];
             for (let i=0;i<userlocation.choice.length;i++) {
                 let c = String(userlocation.choice[i]).split("|");
                 let func = String(c[1]).split(":")[0];
                 let para = String(c[1]).split(":")[1];
                 if (func=='travel') {
-                    V.NeargoPositonOutput.travel.push({text:c[0],func:func,para:para});
+                    V.NeargoSceanOutput.travel.push({text:c[0],func:func,para:para});
                 } else {
-                    V.NeargoPositonOutput.choice.push({text:c[0],func:func,para:para});
+                    V.NeargoSceanOutput.choice.push({text:c[0],func:func,para:para});
                 }
             }
         }
     <</script>>
     <<print $neargoReturnText>><br>
-    <<print $NeargoPositonOutput.desc>><br>
-    <<set _diff = Object.values($NeargoPositonOutput.descDiff)>>
+    <<print $NeargoSceanOutput.desc>><br>
+    <<set _diff = Object.values($NeargoSceanOutput.descDiff)>>
     <<print _diff.random()>><br>
     <br>你可以：<br>
-    <<for _i to 0; _i lt $NeargoPositonOutput.choice.length; _i++>>
-        <<print "<<if $NeargoPositonOutput.choice["+_i+"].func=='buy_item'>><<itemIcon $NeargoPositonOutput.choice["+_i+"].para.split(';')[0]>><</if>>">>
-        <<print "<<link [[$NeargoPositonOutput.choice[_i].text|NeargoPositionStd]]>><<player_action $NeargoPositonOutput.choice["+_i+"].func $NeargoPositonOutput.choice["+_i+"].para>><</link>>">><br>
+    <<for _i to 0; _i lt $NeargoSceanOutput.choice.length; _i++>>
+        <<print "<<if $NeargoSceanOutput.choice["+_i+"].func=='buy_item'>><<itemIcon $NeargoSceanOutput.choice["+_i+"].para.split(';')[0]>><</if>>">>
+        <<print "<<link [[$NeargoSceanOutput.choice[_i].text|NeargoPositionStd]]>><<player_action $NeargoSceanOutput.choice["+_i+"].func $NeargoSceanOutput.choice["+_i+"].para>><</link>>">><br>
     <</for>>
-    <<if $NeargoPositonOutput.travel.length>0>>
+    <<if $NeargoSceanOutput.travel.length>0>>
         <br>或前往其他区域：<br>
-        <<for _i to 0; _i lt $NeargoPositonOutput.travel.length; _i++>>
-            <<print "<<link [[$NeargoPositonOutput.travel[_i].text|NeargoPositionStd]]>><<player_action $NeargoPositonOutput.travel["+_i+"].func $NeargoPositonOutput.travel["+_i+"].para>><</link>>">><br>
+        <<for _i to 0; _i lt $NeargoSceanOutput.travel.length; _i++>>
+            <<print "<<link [[$NeargoSceanOutput.travel[_i].text|NeargoPositionStd]]>><<player_action $NeargoSceanOutput.travel["+_i+"].func $NeargoSceanOutput.travel["+_i+"].para>><</link>>">><br>
         <</for>>
     <</if>>
 <</widget>>
 
 :: NeargoPositionStd
 <<effects>>
-<<std_position_out>>
+<<std_Scean_out>>

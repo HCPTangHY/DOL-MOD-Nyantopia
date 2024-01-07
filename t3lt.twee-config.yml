@@ -8137,3 +8137,11 @@ sugarcube-2:
       name: inventory_item_icon
     inventory_show:
       name: inventory_show
+    inventory_clothing_category_icon:
+      name: inventory_clothing_category_icon
+    inventoey_clothing_slot:
+      name: inventoey_clothing_slot
+    inventory_clothing_icon:
+      name: inventory_clothing_icon
+    std_Scean_out:
+      name: std_Scean_out

@@ -1,38 +1,14 @@
-// var neargoPlayer = {
-//     leftHand:window.neargoPlayer.leftHand || "",
-//     rightHand:window.neargoPlayer.rightHand || "",
-//     backpack:window.neargoPlayer.backpack || "",
-//     inventory:window.neargoPlayer.inventory || [],
-
-//     move_to : function(target) {
-//         V.outside = 0
-//         V.location = target
-//     },
-//     travel : function(target) {
-//         V.outside = 1
-//         V.location = target
-//     },
-//     buy_item : function(args) {
-//         let itemID=args[0];let price=args[1];
-//         console.log(this)
-//         if (window.neargoPlayer.inventory.length >=4) {return "空间不足"};
-//         window.neargoPlayer.inventory.push(itemID);
-//         V.money -= price*100;
-//         return "你购买了"+itemID
-//     }
-// }
 class NeargoPlayer {
-    constructor(lh,rh,bp,inv) {
-        this.leftHand = lh;
-        this.rightHand = rh;
-        this.backpack = bp||"";
-        this.inventory = inv||{};
+    constructor() {
+        this.leftHand = "";
+        this.rightHand = "";
+        this.location = "";
+        this.inventory = {};
     }
-    init(lh,rh,bp,inv) {
-        this.leftHand = lh;
-        this.rightHand = rh;
-        this.backpack = bp;
-        this.inventory = inv;
+    init() {
+        this.leftHand = V.neargoPlayer.leftHand;
+        this.rightHand = V.neargoPlayer.rightHand;
+        this.inventory = V.neargoPlayer.inventory;
     }
     update() {
         Object.defineProperty(V,"neargoPlayer",{value:this});
@@ -72,7 +48,7 @@ class NeargoPlayer {
                 this.inventory[key].inv.push(itemID)
                 V.money -= price*100;
                 this.update();
-                return "你购买了"+itemID;
+                return "你购买了"+window.Items[itemID].name;
             }
         }
         return "空间不足"

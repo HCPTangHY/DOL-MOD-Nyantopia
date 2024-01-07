@@ -3,7 +3,7 @@
 	<<neargoInit>>
 <</if>>
 <<set $outside to 0>><<set $location to "PublicSquare">><<effects>>
-<<std_position_out>>
+<<std_Scean_out>>
 
 :: Public Square East
 <<add_item "Apple">>
