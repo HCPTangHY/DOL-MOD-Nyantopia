@@ -43,6 +43,18 @@ class NeargoPlayer {
         args = String(args).split(";")
         let itemID=args[0];let price=args[1];
         if (V.money < price*100) {return "你没钱了！"}
+        if (this.leftHand == '') {
+            this.leftHand = itemID;
+            V.money -= price*100;
+            this.update();
+            return "你购买了"+window.Items[itemID].name;
+        }
+        if (this.rightHand == '') {
+            this.rightHand = itemID;
+            V.money -= price*100;
+            this.update();
+            return "你购买了"+window.Items[itemID].name;
+        }
         for (let key of Object.keys(this.inventory)) {
             if (this.inventory[key].inv.length+1 <= this.inventory[key].slotNum){
                 this.inventory[key].inv.push(itemID)

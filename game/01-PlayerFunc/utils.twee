@@ -44,3 +44,11 @@
 		<</if>>
 	<</if>>
 <</widget>>
+
+<<widget "inventoey_hand_slot">>
+    <<if $neargoPlayer[_args[0]] == ''>>
+    	<<print "<img class='inventory_item_icon_empty' src='img/misc/icon/categories/" + _args[0] + ".png'>">>
+	<<else>>
+		<<itemIcon $neargoPlayer[_args[0]]>>
+	<</if>>
+<</widget>>

@@ -8145,3 +8145,7 @@ sugarcube-2:
       name: inventory_clothing_icon
     std_Scean_out:
       name: std_Scean_out
+    inventory_canvas:
+      name: inventory_canvas
+    inventoey_hand_slot:
+      name: inventoey_hand_slot

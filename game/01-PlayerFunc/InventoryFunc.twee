@@ -33,6 +33,13 @@
 				<div class='inventory_item'><<inventoey_clothing_slot "feet">></div>
 			</div>
 		</div>
+		<div style='width:129px;'>
+			<div style='justify-content:center;top:50px;display: flex;'><<inventory_canvas 'canvasimg-both'>></div>
+			<div class='inventory_box'>
+				<div class='inventory_item'><<inventoey_hand_slot "leftHand">></div>
+				<div class='inventory_item'><<inventoey_hand_slot "rightHand">></div>
+			</div>
+		</div>
 	</div>
 	<<for _key,_value range $neargoPlayer.inventory>>
 		<h5><<= _value.name>></h5>
@@ -67,8 +74,27 @@
 			$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='closeOverlay()'>关闭</a><br>");
 		};
 	<</script>>
+	<<twinescript>>
+		var canvas = _modelclass.createCanvas(!!_args[1]);
+		_modelclass.render(canvas, _modeloptions, Renderer.defaultListener);
+		canvas.canvas.className = typeof _args[0] is 'string' ? _args[0] : '';
+		canvas.canvas.width = 256;
+		canvas.canvas.height = 256;
+	<</twinescript>>
 <</widget>>
-
+<<widget "inventory_canvas">>
+	<<twinescript>>
+		var canvas = _modelclass.createCanvas(!!_args[1]);
+		_modelclass.render(canvas, _modeloptions, Renderer.defaultListener);
+		canvas.canvas.className = typeof _args[0] is 'string' ? _args[0] : '';
+		var ctx = canvas.canvas.getContext("2d");
+		var img = ctx.getImageData(80,30,70,150);
+		canvas.canvas.width = 70;
+		canvas.canvas.height = 192;
+		ctx.putImageData(img,0,20);
+		output.append(canvas.canvas);
+	<</twinescript>>
+<</widget>>
 <<widget "titleInventory">>
     <<setupTabs>>
 	<div id="overlayTabs" class="tab">
