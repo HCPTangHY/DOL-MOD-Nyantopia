@@ -1,0 +1,44 @@
+:: std_Scean_out [widget]
+<<widget "std_Scean_out">>
+    <<set $nyantopiaSceanOutput = {desc:"",descDiff:[],choice:[],travel:[]}>>
+    <<script>>
+        let userlocation = setup.Sceans[V.location];
+        if (V.location in V.nyantopiaPositions) {userlocation = V.nyantopiaSceans[V.location]}
+        if (userlocation) {
+            V.nyantopiaSceanOutput.desc = String(userlocation.desc).split("|")[0];
+            if (String(userlocation.desc).split("|").length >1) {
+                V.nyantopiaSceanOutput.descDiff = String(userlocation.desc).split("|")[1].split(" ")
+            }
+            V.nyantopiaSceanOutput.choice = [];
+            for (let i=0;i<userlocation.choice.length;i++) {
+                let c = String(userlocation.choice[i]).split("|");
+                let func = String(c[1]).split(":")[0];
+                let para = String(c[1]).split(":")[1];
+                if (func=='travel') {
+                    V.nyantopiaSceanOutput.travel.push({text:c[0],func:func,para:para});
+                } else {
+                    V.nyantopiaSceanOutput.choice.push({text:c[0],func:func,para:para});
+                }
+            }
+        }
+    <</script>>
+    <<print $nyantopiaReturnText>><br>
+    <<print $nyantopiaSceanOutput.desc>><br>
+    <<set _diff = Object.values($nyantopiaSceanOutput.descDiff)>>
+    <<print _diff.random()>><br>
+    <br>你可以：<br>
+    <<for _i to 0; _i lt $nyantopiaSceanOutput.choice.length; _i++>>
+        <<print "<<if $nyantopiaSceanOutput.choice["+_i+"].func=='buy_item'>><<itemIcon $nyantopiaSceanOutput.choice["+_i+"].para.split(';')[0]>><</if>>">>
+        <<print "<<link [[$nyantopiaSceanOutput.choice[_i].text|nyantopiaPositionStd]]>><<player_action $nyantopiaSceanOutput.choice["+_i+"].func $nyantopiaSceanOutput.choice["+_i+"].para>><</link>>">><br>
+    <</for>>
+    <<if $nyantopiaSceanOutput.travel.length>0>>
+        <br>或前往其他区域：<br>
+        <<for _i to 0; _i lt $nyantopiaSceanOutput.travel.length; _i++>>
+            <<print "<<link [[$nyantopiaSceanOutput.travel[_i].text|nyantopiaPositionStd]]>><<player_action $nyantopiaSceanOutput.travel["+_i+"].func $nyantopiaSceanOutput.travel["+_i+"].para>><</link>>">><br>
+        <</for>>
+    <</if>>
+<</widget>>
+
+:: nyantopiaPositionStd
+<<effects>>
+<<std_Scean_out>>

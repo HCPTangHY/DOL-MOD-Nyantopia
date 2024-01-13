@@ -1,8 +1,7 @@
 :: Inventory Function [widget]
-
 <<widget "inventory">>
     物品栏啊哈哈哈哈哈，不喜欢原生HTML....<br>
-	你的物品栏位：<<player_action "count_slots">><<print $neargoReturnText>>
+	你的物品栏位：<<player_action "count_slots">><<print $nyantopiaReturnText>>
 	<div id='inv_clothe_show' class='inventory_box'>
 		<div>
 			<div class='inventory_box'>
@@ -41,39 +40,22 @@
 			</div>
 		</div>
 	</div>
-	<<for _key,_value range $neargoPlayer.inventory>>
-		<h5><<= _value.name>></h5>
-		<div class='inventory_box'>
-		<<for _key2,_item range _value.inv>>
-			<<print "<div class='inventory_item' onclick=\"window.check_item('"+_item+"\')\"><<inventory_item_icon _item>></div>">>
+	<h3>物品栏</h3>
+	<div class='inventory_box'>
+		<<for _item range $nyantopiaPlayer.inventory>>
+			<div class='inventory_item'>
+			<<link ''>>
+				<<replace #customOverlayContent>>
+				<<checkpage _item>>
+				<</replace>>
+			<</link>>
+			<<inventory_item_icon _item>>
+			</div>
 		<</for>>
-		<<if _value.inv.length < _value.slotNum>>
-			<<for _i to 0;_i<_value.slotNum-_value.inv.length;_i++>>
-				<div class='inventory_item'><div class='inventory_item_icon_empty'></div></div>
-			<</for>>
-		<</if>>
-	<</for>>
-	<<script>>
-		window.check_item = function check_item(itemID){
-			let item = window.Items[itemID];
-			$("#customOverlayContent").empty();
-			$("#customOverlayContent").append("<h3>"+item.name+"</h3>");
-			$("#customOverlayContent").append("<p>"+item.desc+"</p>");
-			if (V.neargoPlayer.leftHand != item.id) {
-				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"left;"+item.id+"\")'>装备左手</a><br>");
-			}
-			if (V.neargoPlayer.rightHand != item.id) {
-				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\"equip_item\"](\"right;"+item.id+"\")'>装备右手</a><br>");
-			}
-			for (let c of item.choice) {
-				let ctext = c.split("|")[0];
-				let cfunc = c.split("|")[1].split(":")[0];
-				let cpara = c.split("|")[1].split(":")[1];
-				$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='window.neargoPlayer.init();window.neargoPlayer[\""+cfunc+"\"](\""+cpara+"\")'>"+ctext+"</a><br>");
-			}
-			$("#customOverlayContent").append("<a class='link-internal macro-link' role='link' onclick='closeOverlay()'>关闭</a><br>");
-		};
-	<</script>>
+		<<for _i to 0;_i<$nyantopiaReturnText-$nyantopiaPlayer.inventory.length;_i++>>
+			<div class='inventory_item'><div class='inventory_item_icon_empty'></div></div>
+		<</for>>
+	</div>
 	<<twinescript>>
 		var canvas = _modelclass.createCanvas(!!_args[1]);
 		_modelclass.render(canvas, _modeloptions, Renderer.defaultListener);
@@ -81,6 +63,31 @@
 		canvas.canvas.width = 256;
 		canvas.canvas.height = 256;
 	<</twinescript>>
+<</widget>>
+
+<<widget "checkpage">>
+	<div class='inventory_box'>
+		<<print "<img style='width:125px;height:125px;top:50px;' src='img/misc/icon/item/"+_args[0]+".png'>">>
+		<<set _item = setup.Items[_item]>>
+		<div style='width:60%;'>
+			<h2><<= _item.name>></h2>
+			<p><<= _item.desc>></p>
+			<br>
+			<<if $nyantopiaPlayer.leftHand != _item.id>>
+				<<link "装备左手">><<player_action "equip_item" "left;"+_item.id>><</link>><br>
+			<</if>>
+			<<if $nyantopiaPlayer.rightHand != _item.id>>
+				<<link "装备右手">><<player_action "equip_item" "right;"+_item.id>><</link>><br>
+			<</if>>
+			<<for _c range _item.choice>>
+				<<set _ctext = _c.split("|")[0]>>
+				<<set _cfunc = _c.split("|")[1].split(":")[0]>>
+				<<set _cpara = _c.split("|")[1].split(":")[1]>>
+				<<link _ctext>><<player_action _cfunc _cpara>><</link>><br>
+			<</for>>
+			<<link "返回">><<replace #customOverlayContent>><<inventory>><</replace>><</link>>
+		</div>
+	</div>
 <</widget>>
 <<widget "inventory_canvas">>
 	<<twinescript>>
@@ -95,6 +102,7 @@
 		output.append(canvas.canvas);
 	<</twinescript>>
 <</widget>>
+
 <<widget "titleInventory">>
     <<setupTabs>>
 	<div id="overlayTabs" class="tab">
@@ -105,8 +113,4 @@
 		<</button>>
 	</div>
 	<<closeButton>>
-<</widget>>
-<<widget "add_item">>
-    <<set _item to _args[0]>>
-    <<set $playerInventory = $playerInventory.inventory.concat(_item)>>
 <</widget>>

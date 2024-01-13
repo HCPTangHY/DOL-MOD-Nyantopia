@@ -158,4 +158,4 @@ const clothesSlots = {
 	"school sweater vest": 2,
 }
 
-Object.defineProperty(window,"clothesSlots",{value:clothesSlots})
+Object.defineProperty(setup,"clothesSlots",{value:clothesSlots})

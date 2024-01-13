@@ -1,7 +1,0 @@
-:: neargoInit [widget]
-<<widget "neargoInit">>
-    <<set $neargoIntro to 1>>
-    <<set $neargoReturnText to "">>
-    <<set $neargoPositions = {temp:{}}>>
-    <<set $neargoPlayer to window.neargoPlayer>>
-<</widget>>

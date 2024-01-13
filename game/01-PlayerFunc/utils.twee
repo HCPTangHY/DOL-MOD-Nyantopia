@@ -1,6 +1,6 @@
 :: Functions [widget]
 <<widget "player_action">>
-    <<print "<<script>>window.neargoPlayer.init();V.neargoReturnText = window.neargoPlayer['"+_args[0]+"']('"+_args[1]+"')<</script>>">>
+    <<print "<<script>>window.nyantopiaPlayer.init();V.nyantopiaReturnText = window.nyantopiaPlayer['"+_args[0]+"']('"+_args[1]+"')<</script>>">>
 <</widget>>
 
 <<widget "itemIcon">>
@@ -46,9 +46,9 @@
 <</widget>>
 
 <<widget "inventoey_hand_slot">>
-    <<if $neargoPlayer[_args[0]] == ''>>
+    <<if $nyantopiaPlayer[_args[0]] == ''>>
     	<<print "<img class='inventory_item_icon_empty' src='img/misc/icon/categories/" + _args[0] + ".png'>">>
 	<<else>>
-		<<itemIcon $neargoPlayer[_args[0]]>>
+		<<itemIcon $nyantopiaPlayer[_args[0]]>>
 	<</if>>
 <</widget>>

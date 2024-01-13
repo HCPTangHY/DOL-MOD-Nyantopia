@@ -1,0 +1,7 @@
+:: nyantopiaInit [widget]
+<<widget "nyantopia_init">>
+    <<set $nyantopiaIntro to 1>>
+    <<set $nyantopiaReturnText to "">>
+    <<set $nyantopiaPositions = {temp:{}}>>
+    <<set $nyantopiaPlayer to window.nyantopiaPlayer>>
+<</widget>>

@@ -8121,8 +8121,8 @@ sugarcube-2:
       name: feetActionsMachine
     generateActionsMachine:
       name: generateActionsMachine
-    neargoInit:
-      name: neargoInit
+    nyantopiaInit:
+      name: nyantopiaInit
     add_item:
       name: add_item
     std_position_out:
@@ -8149,3 +8149,7 @@ sugarcube-2:
       name: inventory_canvas
     inventoey_hand_slot:
       name: inventoey_hand_slot
+    nyantopia_init:
+      name: nyantopia_init
+    checkpage:
+      name: checkpage

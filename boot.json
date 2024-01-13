@@ -1,5 +1,11 @@
 {
     "version": "PRE-EA-0.0.004",
+    "scriptFileList_inject_early": [
+        "earlyInject/readData.js"
+    ],
+    "additionFile": [
+        "database/eventLocalization.csv"
+    ],
     "addonPlugin": [
         {
             "modName": "TweeReplacer",
@@ -13,7 +19,7 @@
                 },{
                     "passage": "StoryCaption",
                     "findRegex": "(?<=(<<button SOCIAL>>|<<button 社交>>).*\n.*\n.*>>)",
-                    "replace": "<<if $neargoIntro>><<button 物品栏>><<overlayReplace \"inventory\">><</button>><</if>>"
+                    "replace": "<<if $nyantopiaIntro>><<button 物品栏>><<overlayReplace \"inventory\">><</button>><</if>>"
                 },{
                     "passage":"overlayReplace",
                     "findString":"<<switch _key>>",
