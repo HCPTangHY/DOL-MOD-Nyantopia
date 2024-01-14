@@ -1,10 +1,13 @@
 {
-    "version": "PRE-EA-0.0.004",
-    "scriptFileList_inject_early": [
+    "version": "PRE-EA-0.0.005",
+    "scriptFileList_earlyload": [
         "earlyInject/readData.js"
     ],
     "additionFile": [
-        "database/eventLocalization.csv"
+        "database/EventLocalization.csv",
+        "database/SceanLocalization.csv",
+        "database/Scean.csv",
+        "database/Item.csv"
     ],
     "addonPlugin": [
         {

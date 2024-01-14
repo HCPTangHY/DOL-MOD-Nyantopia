@@ -2,13 +2,10 @@
 <<widget "std_Scean_out">>
     <<set $nyantopiaSceanOutput = {desc:"",descDiff:[],choice:[],travel:[]}>>
     <<script>>
-        let userlocation = setup.Sceans[V.location];
+        let userlocation = setup.Scean[V.location];
         if (V.location in V.nyantopiaPositions) {userlocation = V.nyantopiaSceans[V.location]}
         if (userlocation) {
-            V.nyantopiaSceanOutput.desc = String(userlocation.desc).split("|")[0];
-            if (String(userlocation.desc).split("|").length >1) {
-                V.nyantopiaSceanOutput.descDiff = String(userlocation.desc).split("|")[1].split(" ")
-            }
+            V.nyantopiaSceanOutput.desc = window.localization[navigator.language][userlocation.desc];
             V.nyantopiaSceanOutput.choice = [];
             for (let i=0;i<userlocation.choice.length;i++) {
                 let c = String(userlocation.choice[i]).split("|");

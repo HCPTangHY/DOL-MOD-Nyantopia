@@ -72,7 +72,6 @@
 		<div style='width:60%;'>
 			<h2><<= _item.name>></h2>
 			<p><<= _item.desc>></p>
-			<br>
 			<<if $nyantopiaPlayer.leftHand != _item.id>>
 				<<link "装备左手">><<player_action "equip_item" "left;"+_item.id>><</link>><br>
 			<</if>>
