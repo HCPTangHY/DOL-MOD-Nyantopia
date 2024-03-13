@@ -1,0 +1,15 @@
+ID,trigger,callFunc,option
+NyantopiaFirstEvent_Start,,,"NyantopiaFirstEvent_Shopwindow,NyantopiaFirstEvent_Pavement"
+NyantopiaFirstEvent_Shopwindow,,,NyantopiaFirstEvent_Lookback
+NyantopiaFirstEvent_Lookback,,<<npc "宫子">><<person1>>,"NyantopiaFirstEvent_Deceive,NyantopiaFirstEvent_Confess"
+NyantopiaFirstEvent_Deceive,,,NyantopiaFirstEvent_Follow
+NyantopiaFirstEvent_Confess,,,NyantopiaFirstEvent_Follow
+NyantopiaFirstEvent_Follow,,,NyantopiaFirstEvent_Continue1
+NyantopiaFirstEvent_Continue1,,,NyantopiaFirstEvent_Continue2
+NyantopiaFirstEvent_Continue2,,,NyantopiaFirstEvent_Kitchen
+NyantopiaFirstEvent_Kitchen,,<<set $location = 'PublicSquare'>>,SceanStd
+NyantopiaFirstEvent_Pavement,,,NyantopiaFirstEvent_Exanimation
+NyantopiaFirstEvent_Exanimation,,,NyantopiaFirstEvent_Goodsleep
+NyantopiaFirstEvent_Goodsleep,,,"NyantopiaFirstEvent_Askforhelp,NyantopiaFirstEvent_Keepsilent"
+NyantopiaFirstEvent_Askforhelp,,,NyantopiaFirstEvent_Kitchen
+NyantopiaFirstEvent_Keepsilent,,,NyantopiaFirstEvent_Kitchen

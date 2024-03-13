@@ -1,0 +1,6 @@
+:: Start Nyantopia
+<<if $nyantopiaIntro is undefined>>
+	<<nyantopia_init>>
+<</if>>
+<<std_Event_out "NyantopiaFirstEvent_Start">>
+<<set _link to true>>

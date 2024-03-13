@@ -26,16 +26,16 @@
     <br>你可以：<br>
     <<for _i to 0; _i lt $nyantopiaSceanOutput.choice.length; _i++>>
         <<print "<<if $nyantopiaSceanOutput.choice["+_i+"].func=='buy_item'>><<itemIcon $nyantopiaSceanOutput.choice["+_i+"].para.split(';')[0]>><</if>>">>
-        <<print "<<link [[$nyantopiaSceanOutput.choice[_i].text|nyantopiaPositionStd]]>><<player_action $nyantopiaSceanOutput.choice["+_i+"].func $nyantopiaSceanOutput.choice["+_i+"].para>><</link>>">><br>
+        <<print "<<link [[$nyantopiaSceanOutput.choice[_i].text|nyantopiaSceanStd]]>><<player_action $nyantopiaSceanOutput.choice["+_i+"].func $nyantopiaSceanOutput.choice["+_i+"].para>><</link>>">><br>
     <</for>>
     <<if $nyantopiaSceanOutput.travel.length>0>>
         <br>或前往其他区域：<br>
         <<for _i to 0; _i lt $nyantopiaSceanOutput.travel.length; _i++>>
-            <<print "<<link [[$nyantopiaSceanOutput.travel[_i].text|nyantopiaPositionStd]]>><<player_action $nyantopiaSceanOutput.travel["+_i+"].func $nyantopiaSceanOutput.travel["+_i+"].para>><</link>>">><br>
+            <<print "<<link [[$nyantopiaSceanOutput.travel[_i].text|nyantopiaSceanStd]]>><<player_action $nyantopiaSceanOutput.travel["+_i+"].func $nyantopiaSceanOutput.travel["+_i+"].para>><</link>>">><br>
         <</for>>
     <</if>>
 <</widget>>
 
-:: nyantopiaPositionStd
+:: nyantopiaSceanStd
 <<effects>>
 <<std_Scean_out>>

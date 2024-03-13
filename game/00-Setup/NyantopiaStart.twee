@@ -4,4 +4,5 @@
     <<set $nyantopiaReturnText to "">>
     <<set $nyantopiaPositions = {temp:{}}>>
     <<set $nyantopiaPlayer to window.nyantopiaPlayer>>
+    <<NyanNNPC_init>>
 <</widget>>

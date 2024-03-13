@@ -1,0 +1,18 @@
+:: std_Event_out [widget]
+<<widget "std_Event_out">>
+    <<set _eventID = _args[0]>>
+    <<set _e = setup.NyanEvent[_eventID]>>
+    <<print _e.callFunc>>
+    <<= _e.desc>>
+    <<for _i to 0; _i lt _e.option.length; _i++>>
+        <<print "<<set _text = window.localization[navigator.language][_e.id+'_option'+("+_i+"+1)]>><<link _text>><<set $activeNyanEvent = _e.option["+_i+"]>><<goto 'nyantopiaEventStd'>><</link>><br>">>
+    <</for>>
+<</widget>>
+
+:: nyantopiaEventStd
+<<if $activeNyanEvent=='SceanStd'>>
+    <<std_Scean_out>>
+<<else>>
+    <<std_Event_out $activeNyanEvent>>
+<</if>>
+<<set _link to true>>

@@ -1,6 +1,6 @@
 (async() => {
     function read_csv(csv) {
-        csv = csv.split("\n");
+        csv = csv.split("\r\n");
         for (let i=0;i<csv.length;i++) {
             csv[i] = csv[i].split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
             for (let j=0;j<csv[i].length;j++) {

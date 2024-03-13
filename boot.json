@@ -7,7 +7,8 @@
         "database/EventLocalization.csv",
         "database/SceanLocalization.csv",
         "database/Scean.csv",
-        "database/Item.csv"
+        "database/Item.csv",
+        "database/NyanEvent.csv"
     ],
     "addonPlugin": [
         {
@@ -18,7 +19,7 @@
                 {
                     "passage": "Bedroom",
                     "findString": "<<bedclotheson \"bed\">>",
-                    "replace": "<<bedclotheson \"bed\">>[[魂穿猫国|Public Square]]"
+                    "replace": "<<bedclotheson \"bed\">>[[魂穿猫国|Start Nyantopia]]"
                 },{
                     "passage": "StoryCaption",
                     "findRegex": "(?<=(<<button SOCIAL>>|<<button 社交>>).*\n.*\n.*>>)",
@@ -27,6 +28,10 @@
                     "passage":"overlayReplace",
                     "findString":"<<switch _key>>",
                     "replace":"<<switch _key>><<case \"inventory\">><<replace #customOverlayTitle>><<titleInventory>><</replace>><<replace #customOverlayContent>><<inventory>><</replace>>"
+                },{
+                    "passage":"Social",
+                    "findString":"T.specialNPCs = [\"Ivory Wraith\"];",
+                    "replace":"T.specialNPCs = [\"Ivory Wraith\"];T.importantNpcOrder=T.importantNpcOrder.concat([\"宫子\",\"梅洛\"]);Object.assign(T.npcConfig,{\"宫子\":{important:true},\"梅洛\":{importent:true}});"
                 }
             ]
         },

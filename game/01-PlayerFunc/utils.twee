@@ -52,3 +52,19 @@
 		<<itemIcon $nyantopiaPlayer[_args[0]]>>
 	<</if>>
 <</widget>>
+
+<<widget "phone_app" container>>
+	<<set _c = _contents>>
+	<div style='justify-content: center;display: flex;'>
+		<<capture _c>>
+			<<link ''>>
+				_c
+			<</link>>
+		<</capture>>
+		<<phone_app_icon _args[0]>>
+	</div>
+<</widget>>
+
+<<widget "phone_app_icon">>
+	<<print "<img class='phone_app_icon' width='100%' src='img/phone/app/"+_args[0]+".png'>">>
+<</widget>>

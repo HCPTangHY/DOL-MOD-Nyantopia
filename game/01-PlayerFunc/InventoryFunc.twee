@@ -110,6 +110,40 @@
 			<<toggleTab>>
 			<<replace #customOverlayContent>><<inventory>><</replace>>
 		<</button>>
+		<<button "手机">>
+			<<replace #customOverlayContent>><<phone>><</replace>>
+		<</button>>
 	</div>
 	<<closeButton>>
+<</widget>>
+
+<<widget "phone">>
+	<div id="phoneContainer">
+		<div id="phone">
+			<div id="head"><<ampm>><span id="signalStrength">📶</span></div>
+			<img id='phonebg' src='img/phone/bg.png'>
+			<div id="phonecontents"><<phone_MainMenu>></div>
+		</div>
+	</div>
+<</widget>>
+
+<<widget "phone_MainMenu">>
+	<div id="mainMenu_time"><<ampm>></div>
+	<div id="mainMenu">
+		<<phone_app 'nyangalary'>>
+			<<run alart(1)>>
+		<</phone_app>>
+		<<phone_app 'nyanchat'>>
+		<</phone_app>>
+		<<phone_app 'nyancall'>>
+		<</phone_app>>
+		<<phone_app 'nyanbook'>>
+		<</phone_app>>
+	</div>
+<</widget>>
+
+<<widget "nyangalary_content">>
+	1s1221
+	122113
+	1213
 <</widget>>

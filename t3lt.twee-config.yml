@@ -8153,3 +8153,18 @@ sugarcube-2:
       name: nyantopia_init
     checkpage:
       name: checkpage
+    std_Event_out:
+      name: std_Event_out
+    NyanNNPC_init:
+      name: NyanNNPC_init
+    phone:
+      name: phone
+    phone_app:
+      name: phone_app
+      container: true
+    phone_app_icon:
+      name: phone_app_icon
+    phone_MainMenu:
+      name: phone_MainMenu
+    nyangalary_content:
+      name: nyangalary_content
